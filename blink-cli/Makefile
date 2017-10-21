@@ -17,7 +17,7 @@ $(program_name).elf: $(program_name).o
 $(program_name).hex: $(program_name).elf
 			avr-objcopy -O ihex $(program_name).elf $(program_name).hex
 
-upload: $(program_name).hex
+deploy: $(program_name).hex
 			avrdude -c arduino -p $(part_no) -U flash:w:$(program_name).hex:i -v -P $(tty_port) -b$(baud_rate) -D
 
 clean:
